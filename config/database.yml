@@ -1,0 +1,13 @@
+default: &default
+    adapter: mysql2
+    encoding: utf8
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    username: demo
+    password: demo@12345
+    host: localhost
+    port: 3306
+
+development:
+    <<: *default
+    database: quan_ly_cong_ty
+
