@@ -17,8 +17,21 @@ class UserController < ApplicationController
     end
   end
 
+  def send_password_reset_email
+    generate_password_reset_token
+    save!
+    UserMailer.password_reset(self).deliver_now
+  end
+
+
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_cofirmation)
+  end
+
+  def generate_password_reset_token
+    self.reset_token = SecureRandom.urlsafe_base64
+    self.reset_sent_at = Time.now.utc
   end
 end

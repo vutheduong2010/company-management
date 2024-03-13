@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema[7.1].define(version: 2024_03_11_070839) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_064036) do
+  create_table "companies", charset: "utf8mb3", force: :cascade do |t|
+    t.string "company_code"
+    t.string "company_name"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.string "website"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> Stashed changes
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"

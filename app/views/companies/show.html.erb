@@ -1,0 +1,16 @@
+<h1>Edit informatin companies</h1>
+<h2>Information company</h2>
+
+<p><strong>CODE:</strong> <%= @company.company_code %></p>
+<p><strong>NAME:</strong> <%= @company.company_name %></p>
+<p><strong>ADDRESS:</strong> <%= @company.address %></p>
+<p><strong>EMAIL:</strong> <%= @company.email %></p>
+<p><strong>PHONE:</strong> <%= @company.phone %></p>
+<p><strong>WEBSITE:</strong> <%= @company.website %></p>
+<p><strong>STATUS:</strong> <%= @company.status %></p>
+
+
+
+<%= link_to 'Quay lại', companies_path %>
+<%= link_to 'Chỉnh sửa', companies_edit_path(@company) %>
+

@@ -1,0 +1,47 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<h1> Edit information company </h1>
+<h2>Information company </h2>
+
+
+
+<%= form_with(model: @company, local: true) do |form| %>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :company_code %></label>
+    <%= form.text_field :company_code,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :company_name %></label>
+    <%= form.text_field :company_name,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :address %></label>
+    <%= form.text_field :address,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :email %></label>
+    <%= form.text_field :email,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :phone %></label>
+    <%= form.text_field :phone,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :website %></label>
+    <%= form.text_field :website,  class:'form-control'%>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><%= form.label :status %></label>
+    <%= form.text_field :status,  class:'form-control'%>
+  </div>
+
+  <%= form.submit 'SAVE' %>
+
+
+<% end %>

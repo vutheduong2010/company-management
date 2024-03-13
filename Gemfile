@@ -4,6 +4,8 @@ gem 'mysql2'
 
 ruby "3.0.2"
 
+gem 'faker'
+
 gem 'bcrypt', '~> 3.1.13'
 
 gem 'pry-rails', :group => :development
