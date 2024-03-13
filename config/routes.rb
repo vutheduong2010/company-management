@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< Updated upstream
-=======
   get 'home/index'
   get 'companies/index'
   get 'companies/show'
@@ -10,7 +8,6 @@ Rails.application.routes.draw do
   get 'companies/update'
   get 'companies/destroy'
   get 'password_resets/new'
->>>>>>> Stashed changes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -22,8 +19,6 @@ Rails.application.routes.draw do
   get "sign_up", to: "user#new"
   post "sign_up", to: "user#create"
 
-<<<<<<< Updated upstream
-=======
   #log in
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -43,7 +38,6 @@ Rails.application.routes.draw do
 
 
 
->>>>>>> Stashed changes
 
   # Defines the root path route ("/")
   # root "posts#index"
