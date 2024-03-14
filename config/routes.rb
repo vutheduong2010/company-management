@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  get 'branches/index'
+  get 'branches/show'
+  get 'branches/new'
+  get 'branches/create'
+  get 'branches/edit'
+  get 'branches/update'
+  get 'branches/destroy'
   get 'home/index'
-  get 'companies/index'
-  get 'companies/show'
-  get 'companies/new'
-  get 'companies/create'
-  get 'companies/edit'
-  get 'companies/update'
-  get 'companies/destroy'
+
   get 'password_resets/new'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -30,15 +32,10 @@ Rails.application.routes.draw do
 
 
 
-  get 'companies', to: 'companies#index'
-
-  get '/company/:id', to: 'companies#show', as: 'company'
-  delete '/company/:id', to: 'companies#destroy'
 
 
+  resources :companies
+  resources :branches
+  resources :divisions
 
-
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

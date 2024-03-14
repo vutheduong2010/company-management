@@ -6,6 +6,8 @@ ruby "3.0.2"
 
 gem 'faker'
 
+gem 'paperclip'
+
 gem 'bcrypt', '~> 3.1.13'
 
 gem 'pry-rails', :group => :development

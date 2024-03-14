@@ -1,18 +1,17 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies =Company.all
+    @companies = Company.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
   end
-
-
-
 
   def show
     @company = Company.find(params[:id])
-  end
-
-  def back_to_show
-    @student = company.find(params[:id])
-    redirect_to companies_path(@company)
+    # if @company
+    #   redirect_to company_path(@company)
+    # else
+    #   flash[:error] = "Không tìm thấy công ty"
+    #   redirect_to companies_path
+    # end
   end
 
   def new
@@ -21,31 +20,31 @@ class CompaniesController < ApplicationController
 
 
   def edit
-
+    @company = Company.find(params[:id])
   end
 
   def create
     @company = Company.new(company_params)
-
     if @company.save
-      redirect_to @company, notice: 'Công ty đã được tạo thành công.'
+      redirect_to companies_path, notice: 'Thông tin công ty đã được lưu thành công.'
     else
       render :new
     end
   end
 
   def update
+    @company = Company.find(params[:id])
     if @company.update(company_params)
-      redirect_to @company, notice: 'Thông tin công ty đã được cập nhật thành công.'
+      redirect_to companies_path, notice: 'Thông tin công ty đã được cập nhật thành công.'
     else
-      render :edit
+      render :edit, alert: 'Có lỗi xảy ra khi cập nhật thông tin công ty.'
     end
   end
 
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
-    redirect_to companies_index_url, notice: 'Công ty đã được xóa thành công.'
+    redirect_to companies_path, notice: 'Công ty đã được xóa thành công.'
   end
 
   private
