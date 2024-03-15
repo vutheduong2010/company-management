@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   def index
-    @companies =Company.all
+    @companies = Company.paginate(page: params[:page], per_page: 10)
+
     @companies = Company.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
   end
 
@@ -26,6 +27,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
+      @company.avatar.attach(params[:company][:avatar])
       redirect_to companies_path, notice: 'Thông tin công ty đã được lưu thành công.'
     else
       render :new

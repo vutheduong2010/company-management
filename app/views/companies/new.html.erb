@@ -6,7 +6,8 @@
 <h1>Add Information Company</h1>
       </div>
 <%= form_with(model: @company, url: companies_path,  method: :post, local: true) do |form| %>
-
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
         <div class="form-group row mt-3">
     <label for="exampleFormControlInput1" class="form-label"><%= form.label :company_code %></label>
     <%= form.text_field :company_code,  class:'form-control',

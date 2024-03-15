@@ -9,12 +9,12 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 6 }
 
-  def remember
-    self.remember_token = SecureRandom.urlsafe_base64
-    update_attribute(:remember_digest, BCrypt::Password.create(remember_token))
+  attr_accessor :password_reset_token, :password_reset_token_expires_at
+
+  def generate_reset_token
+    self.reset_token = SecureRandom.urlsafe_base64
+    self.reset_token_sent_at = Time.zone.now
+    save!
+  end
   end
 
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
-end

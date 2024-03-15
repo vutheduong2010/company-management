@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-  get 'branches/index'
-  get 'branches/show'
-  get 'branches/new'
-  get 'branches/create'
-  get 'branches/edit'
-  get 'branches/update'
-  get 'branches/destroy'
+
   get 'home/index'
 
-  get 'password_resets/new'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -27,9 +21,11 @@ Rails.application.routes.draw do
 
 
   #forgot password
-  get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
+  get '/forgot_password', to: 'password_resets#new'
+  post '/forgot_password', to: 'password_resets#create'
 
-
+  get 'password_resets/:token/edit', to: 'password_resets#edit', as: 'edit_password_reset'
+  patch 'password_resets/:token', to: 'password_resets#update'
 
 
 
@@ -38,4 +34,9 @@ Rails.application.routes.draw do
   resources :branches
   resources :divisions
 
+
+  post 'change_account', to: 'home#change_account', as: :change_account
+  delete 'logout', to: 'sessions#destroy'
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

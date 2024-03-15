@@ -8,6 +8,19 @@ gem 'faker'
 
 gem 'paperclip'
 
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'letter_opener', group: :development
+gem 'letter_opener_web', '~> 2.0'
+
+gem 'ransack'
+gem 'config'
+
+gem 'kaminari'
+gem 'ransack'
+gem 'bootstrap-kaminari-views'
+
+
 gem 'bcrypt', '~> 3.1.13'
 
 gem 'pry-rails', :group => :development

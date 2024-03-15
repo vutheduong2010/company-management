@@ -27,12 +27,16 @@
       <td class="center-text"><%= button_to 'Delete', company_path(company), method: :delete %></td>
       </tr>
     <% end %>
+
   </table>
   <div class="form-group row mt-3">
     <button><%= link_to 'ADD COMPANY', new_company_path, class: "form-control" %></button>
   </div>
   <%= link_to 'Quay lại trang chủ', root_path %>
 </div>
+<%= paginate @companies, theme: 'twitter-bootstrap-3' %>
+
+
   <style>
       table{
           background-color: aliceblue;
@@ -50,3 +54,4 @@
       }
 
   </style>
+

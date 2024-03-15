@@ -1,11 +1,12 @@
 class DivisionsController < ApplicationController
     def index
-      @divisions =Division.all
+      @divisions = Division.paginate(page: params[:page], per_page: 10)
+
       @divisions = Division.where("division_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
     end
 
     def show
-      @cdivision = Division.find(params[:id])
+      @division = Division.find(params[:id])
     end
 
     def new

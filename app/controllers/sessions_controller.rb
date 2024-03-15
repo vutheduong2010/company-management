@@ -6,9 +6,12 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      if params[:remember_me]
+        cookies[:user_id] = { value: user.id, expires: 2.weeks.from_now }
+      end
       redirect_to root_path, notice: "Đăng nhập thành công!"
     else
-      flash[:alert] = "Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin đăng nhập."
+      flash.now[:alert] = "Email hoặc mật khẩu không đúng"
       render :new
     end
   end
@@ -29,8 +32,8 @@ class SessionsController < ApplicationController
 
 
   def destroy
-
-      sessions.delete(:user_id)
-      redirect_to root_path, notice: "Bạn đã đăng xuất thành công."
+    session[:user_id] = nil
+    cookies.delete(:user_id)
+    redirect_to login_path, notice: "Đã đăng xuất!"
   end
 end

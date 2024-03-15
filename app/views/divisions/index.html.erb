@@ -1,9 +1,12 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="centered-content">
   <h1>Divisions Managements</h1>
+
+  <div class="form-group row mt-3">
   <%= form_tag(divisions_path, method: :get) do %>
     <%= text_field_tag :search, params[:search], placeholder: 'Enter your division code' %>
     <%= submit_tag 'Tìm Kiếm' %>
+      </div>
   <% end %>
   <table class="division-table">
     <tr>
@@ -30,12 +33,16 @@
       <td class="center-text"><%= button_to 'Delete', division_path(division), method: :delete %></td>
       </tr>
     <% end %>
+
+
   </table>
   <div class="form-group row mt-3">
     <button><%= link_to 'ADD DIVISION', new_division_path, class: "form-control" %></button>
   </div>
   <%= link_to 'Quay lại trang chủ', root_path %>
 </div>
+<%= paginate @divisions, theme: 'twitter-bootstrap-3' %>
+
 <style>
     table{
         background-color: aliceblue;

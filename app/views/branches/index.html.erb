@@ -33,6 +33,9 @@
   </div>
   <%= link_to 'Quay lại trang chủ', root_path %>
 </div>
+
+<%= paginate @branches, theme: 'twitter-bootstrap-3' %>
+
 <style>
     table{
         background-color: aliceblue;
@@ -50,3 +53,4 @@
     }
 
 </style>
+

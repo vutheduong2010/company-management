@@ -1,14 +1,31 @@
-<h1> COMPANY MANAGEMENT</h1>
-<%= link_to 'List companies', companies_path %> |
-<%= link_to 'List branches', branches_path %> |
-<%= link_to 'List divisions', divisions_path %> |
-<%= link_to 'Quay lại trang Login', login_path %> |
+<!-- Trong tệp HTML -->
+<h1 style="text-align: center; color: #333; font-size: 40px; font-weight: bold; margin-top: 30px; margin-bottom: 20px;">Company Managements</h1>
+<div class="home-page">
+  <%= render 'shared/navbar' %>
 
-<%= link_to "Đăng xuất", login_path, method: :delete %>
+</div>
 
+<style>
+    .vertical-navbar {
+        width: 200px; /* Độ rộng của navbar */
+        background-color: #333; /* Màu nền */
+    }
 
+    .vertical-navbar ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
+    .vertical-navbar li {
+        padding: 8px;
+    }
 
+    .vertical-navbar li a {
+        color: white;
+        text-decoration: none;
+    }
 
-
-
+    .vertical-navbar li a:hover {
+        background-color: #555;
+    }
+</style>
