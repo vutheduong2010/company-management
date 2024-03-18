@@ -1,8 +1,8 @@
 class DivisionsController < ApplicationController
     def index
-      @divisions = Division.paginate(page: params[:page], per_page: 10)
-
-      @divisions = Division.where("division_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
+      @divisions = Division.all
+      @divisions = @divisions.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
+      @divisions = @divisions.paginate(page: params[:page], per_page: 10)
     end
 
     def show

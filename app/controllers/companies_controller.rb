@@ -1,12 +1,16 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.paginate(page: params[:page], per_page: 10)
-
-    @companies = Company.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    @companies = Company.all
+    @companies = @companies.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    @companies = @companies.paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @company = Company.find(params[:id])
+    @avatar_url = if @company.avatar.attached?
+                    url_for(@company.avatar.first) # Sử dụng first để lấy một tệp đính kèm đầu tiên (nếu có)
+                  else
+                    nil
     # if @company
     #   redirect_to company_path(@company)
     # else
@@ -14,7 +18,7 @@ class CompaniesController < ApplicationController
     #   redirect_to companies_path
     # end
   end
-
+    end
   def new
     @company = Company.new
   end
@@ -48,6 +52,23 @@ class CompaniesController < ApplicationController
     @company.destroy
     redirect_to companies_path, notice: 'Công ty đã được xóa thành công.'
   end
+
+  def update_avatar
+    @company = Company.find(params[:id])
+    if params[:company].present? && params[:company][:avatar].present?
+      @company.avatar.attach(params[:company][:avatar])
+      redirect_to @company, notice: 'Avatar was successfully uploaded.'
+    else
+      redirect_to @company, alert: 'No avatar file uploaded.'
+    end
+  end
+
+  def remove_avatar
+    @company = Company.find(params[:id])
+    @company.avatar.purge
+    redirect_to @company, notice: 'Avatar was successfully removed.'
+  end
+
 
   private
 

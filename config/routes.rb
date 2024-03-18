@@ -30,7 +30,12 @@ Rails.application.routes.draw do
 
 
 
-  resources :companies
+  resources :companies do
+    put 'update_avatar', on: :member
+    member do
+      delete 'remove_avatar', to: 'companies#remove_avatar'
+    end
+  end
   resources :branches
   resources :divisions
 
@@ -39,4 +44,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
 end

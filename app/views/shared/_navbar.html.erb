@@ -1,35 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Managements</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Company Managements</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <%= link_to "List companies", companies_path, class: "navbar-brand" %>
+      <%= link_to "List branches", branches_path, class: "navbar-brand" %>
+      <%= link_to "List divisions", divisions_path, class: "navbar-brand" %>
 
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+          <li class="nav-item">
+            <%= link_to "Back to login", login_path, class: "nav-link" %>
+          </li>
 
-    <%= link_to "List companies", companies_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+          <li class="nav-item">
+            <%= button_to 'Sign Out', logout_path, method: :delete %>
+          </li>
 
-    <%= link_to "List branches", branches_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <%= link_to "List divisions", divisions_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-        <li class="nav-item">
-          <%= link_to "Back to login", login_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= button_to 'Sign Out', logout_path, method: :delete, class: "nav-link" %>
-        </li>
-
-      </ul>
+        </ul>
+      </div>
     </div>
+  </nav>
+</header>
+<section class="banner">
+  <h2>Welcome to Our Website</h2>
+  <p>We provide the best products and services for you.</p>
+  <a href="#" class="btn">Learn More</a>
+</section>
+<section class="features">
+  <div class="feature">
+    <h3>High Performance</h3>
+    <p>Our products are designed to deliver the best performance.</p>
   </div>
-</nav>
+  <div class="feature">
+    <h3>Beautiful Design</h3>
+    <p>We pay attention to every detail in the design of our products.</p>
+  </div>
+  <div class="feature">
+    <h3>Responsive Support</h3>
+    <p>Our support team is always ready to answer any of your questions.</p>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2024 Company Managements. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .banner {
+        background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg');
+        background-size: cover;
+        color: #fff;
+        padding: 100px 0;
+        text-align: center;
+    }
+
+    .banner h2 {
+        margin-top: 0;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px 0;
+    }
+
+    .feature {
+        text-align: center;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+</style>

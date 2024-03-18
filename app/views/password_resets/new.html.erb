@@ -1,10 +1,24 @@
-<h2>Quên mật khẩu</h2>
-<%= form_with(url: forgot_password_path, method: :post) do |f| %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Quên mật khẩu</h2>
+          <%= form_with(url: forgot_password_path, method: :post) do |f| %>
+            <div class="form-group">
+              <%= f.label :email, "Email" %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Nhập địa chỉ email của bạn" %>
+            </div>
+            <div class="text-center">
+              <%= f.submit "Gửi yêu cầu đặt lại mật khẩu", class: "btn btn-primary btn-block" %>
+            </div>
+
+            <div class="mt-4">
+              <%= link_to 'Back to login', login_path, class: "btn btn-secondary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit "Gửi yêu cầu đặt lại mật khẩu" %>
-  </div>
-<% end %>
+</div>
