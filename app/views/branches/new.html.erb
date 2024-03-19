@@ -36,64 +36,60 @@
       </div>
       <%= form_with(model: @branch, url: branches_path, method: :post, local: true) do |form| %>
 
+        <style>
+            .form-section-label {
+                font-weight: bold;
+            }
+        </style>
+
         <div class="mb-3">
-          <%= form.label :branch_code, class: "form-label" %>
-          <%= form.text_field :branch_code, class: "form-control",
-                              placeholder: "Enter branch code" %>
+          <%= form.label :branch_code, class: "form-label form-section-label" %>
+          <%= form.text_field :branch_code, class: "form-control", placeholder: "Enter branch code" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :branch_name, class: "form-label" %>
-          <%= form.text_field :branch_name, class: "form-control",
-                              placeholder: "Enter branch name" %>
+          <%= form.label :branch_name, class: "form-label form-section-label" %>
+          <%= form.text_field :branch_name, class: "form-control", placeholder: "Enter branch name" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :company_code, class: "form-label" %>
-          <%= form.text_field :company_code, class: "form-control",
-                              placeholder: "Enter company code" %>
+          <%= form.label :company_code, class: "form-label form-section-label" %>
+          <%= form.text_field :company_code, class: "form-control", placeholder: "Enter company code" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :company_name, class: "form-label" %>
-          <%= form.text_field :company_name, class: "form-control",
-                              placeholder: "Enter company name" %>
+          <%= form.label :company_name, class: "form-label form-section-label" %>
+          <%= form.text_field :company_name, class: "form-control", placeholder: "Enter company name" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :address, class: "form-label" %>
-          <%= form.text_field :address, class: "form-control",
-                              placeholder: "Enter address" %>
+          <%= form.label :address, class: "form-label form-section-label" %>
+          <%= form.text_field :address, class: "form-control", placeholder: "Enter address" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :area, class: "form-label" %>
-          <%= form.text_field :area, class: "form-control",
-                              placeholder: "Enter area" %>
+          <%= form.label :area, class: "form-label form-section-label" %>
+          <%= form.text_field :area, class: "form-control", placeholder: "Enter area" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :email, class: "form-label" %>
-          <%= form.text_field :email, class: "form-control",
-                              placeholder: "Enter email" %>
+          <%= form.label :email, class: "form-label form-section-label" %>
+          <%= form.text_field :email, class: "form-control", placeholder: "Enter email" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :phone, class: "form-label" %>
-          <%= form.text_field :phone, class: "form-control",
-                              placeholder: "Enter phone number" %>
+          <%= form.label :phone, class: "form-label form-section-label" %>
+          <%= form.text_field :phone, class: "form-control", placeholder: "Enter phone number" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :website, class: "form-label" %>
-          <%= form.text_field :website, class: "form-control",
-                              placeholder: "Enter website" %>
+          <%= form.label :website, class: "form-label form-section-label" %>
+          <%= form.text_field :website, class: "form-control", placeholder: "Enter website" %>
         </div>
 
         <div class="mb-3">
-          <%= form.label :status, class: "form-label" %>
-          <%= form.text_field :status, class: "form-control",
-                              placeholder: "Enter status" %>
+          <%= form.label :status, class: "form-label form-section-label" %>
+          <%= form.text_field :status, class: "form-control", placeholder: "Enter status" %>
         </div>
 
         <div class="mb-3">
@@ -101,7 +97,8 @@
           <%= link_to 'Back', branches_path, class: 'btn btn-secondary' %>
         </div>
 
-      <% end %>
+
+    <% end %>
     </div>
   </div>
 </div>

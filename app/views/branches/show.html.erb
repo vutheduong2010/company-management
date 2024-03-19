@@ -1,28 +1,50 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h1>Information branch</h1>
-
-      <div class="mt-4">
-        <p><strong>CODE:</strong> <%= @branch.branch_code %></p>
-        <p><strong>NAME:</strong> <%= @branch.branch_name %></p>
-        <p><strong>CODE:</strong> <%= @branch.company_code %></p>
-        <p><strong>NAME:</strong> <%= @branch.company_name %></p>
-        <p><strong>ADDRESS:</strong> <%= @branch.address %></p>
-        <p><strong>ADDRESS:</strong> <%= @branch.area %></p>
-        <p><strong>EMAIL:</strong> <%= @branch.email %></p>
-        <p><strong>PHONE:</strong> <%= @branch.phone %></p>
-        <p><strong>WEBSITE:</strong> <%= @branch.website %></p>
-        <p><strong>STATUS:</strong> <%= @branch.status %></p>
-      </div>
-
-      <div class="mt-4">
-        <%= link_to 'Back', branches_path, class: "btn btn-secondary" %>
-        <%= link_to 'Edit', edit_branch_path(@branch), class: "btn btn-primary" %>
+      <div class="card mt-4">
+        <div class="card-header">
+          <h1 class="card-title">Information Branch</h1>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <strong>Code:</strong> <%= @branch.branch_code %>
+          </div>
+          <div class="mb-3">
+            <strong>Name:</strong> <%= @branch.branch_name %>
+          </div>
+          <div class="mb-3">
+            <strong>Company Code:</strong> <%= @branch.company_code %>
+          </div>
+          <div class="mb-3">
+            <strong>Company Name:</strong> <%= @branch.company_name %>
+          </div>
+          <div class="mb-3">
+            <strong>Address:</strong> <%= @branch.address %>
+          </div>
+          <div class="mb-3">
+            <strong>Area:</strong> <%= @branch.area %>
+          </div>
+          <div class="mb-3">
+            <strong>Email:</strong> <%= @branch.email %>
+          </div>
+          <div class="mb-3">
+            <strong>Phone:</strong> <%= @branch.phone %>
+          </div>
+          <div class="mb-3">
+            <strong>Website:</strong> <%= @branch.website %>
+          </div>
+          <div class="mb-3">
+            <strong>Status:</strong> <%= @branch.status %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Back', branches_path, class: "btn btn-secondary me-2" %>
+          <%= link_to 'Edit', edit_branch_path(@branch), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 

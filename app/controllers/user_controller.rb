@@ -13,7 +13,7 @@ class UserController < ApplicationController
     else
       flash.now[:alert]= "An error occurred while registering"
       render :new
-      #flash[:notice] = 'Error' and redirect_to request.referer
+      flash[:notice] = 'Error' and redirect_to request.referer
     end
   end
 

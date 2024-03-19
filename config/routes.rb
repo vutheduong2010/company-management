@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   get 'password_resets/:token/edit', to: 'password_resets#edit', as: 'edit_password_reset'
   patch 'password_resets/:token', to: 'password_resets#update'
-
-
+  get '/change_password', to: 'home#edit'
+  post '/update_password', to: 'home#update_password'
 
 
   resources :companies do

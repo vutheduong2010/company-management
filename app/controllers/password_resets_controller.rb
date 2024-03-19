@@ -2,7 +2,7 @@ class PasswordResetsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user
-      user.generate_reset_token # Tạo và lưu reset_token cho user
+      user.generate_reset_token # Tạo vuà lưu reset_token cho user
       UserMailer.password_reset_email(user).deliver_now
       # Tiếp tục xử lý khác
     else

@@ -5,7 +5,7 @@
   <div class="form-group row mt-3">
   <%= form_tag(divisions_path, method: :get) do %>
     <%= text_field_tag :search, params[:search], placeholder: 'Enter your division code' %>
-    <%= submit_tag 'Tìm Kiếm' %>
+    <%= submit_tag 'Search', class:'btn btn-secondary' %>
       </div>
   <% end %>
 
@@ -14,7 +14,6 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Giao diện Bảng</title>
       <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -34,8 +33,6 @@
         </thead>
         <tbody>
         <% @divisions.each do |division| %>
-
-          <tr <%= @ids&.include?(division.id) ? 'active' : '' %>">
           <td class="center-text"><%=  division.company_name  %></td>
           <td class="center-text"><%=  division.branch_name %></td>
           <td class="center-text"><%=  division.division_code %></td>
@@ -43,8 +40,15 @@
           <td class="center-text"><%=  division.email  %></td>
           <td class="center-text"><%=  division.phone  %></td>
           <td class="center-text"><%= link_to 'Detail', "/divisions/#{division.id}}",class:'btn btn-secondary' %></td>
-          <td class="center-text"><%= button_to 'Delete', division_path(division), method: :delete %></td>
-          </tr>
+          <td class="center-text">
+          <%= button_to 'Delete', division_path(division), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
+          </td>
+
+          <script>
+              function confirmDelete() {
+                  return confirm('Are you sure you want to delete this division?');
+              }
+          </script>        </tr>          </tr>
         <% end %>
         <!-- Thêm các hàng khác tương tự -->
         </tbody>
@@ -58,7 +62,7 @@
     <%= link_to 'ADD DIVISION', new_division_path, class:'btn btn-primary' %>
   </div>
     <div class="mt-4">
-  <%= link_to 'Quay lại trang chủ', root_path, class: "btn btn-secondary" %>
+  <%= link_to 'Back to Homepage', root_path, class: "btn btn-secondary" %>
     </div>
 </div>
 <div class="pagination">

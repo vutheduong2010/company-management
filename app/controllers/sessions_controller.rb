@@ -17,18 +17,19 @@ class SessionsController < ApplicationController
   end
 
   def remember_password
-    @session = Session.new(session_params)
-    if @session.save
+    @remember_token = RememberToken.new(remember_token_params)
+    if @remember_token.save
       if params[:session][:remember_me] == '1'
-        cookies.permanent[:remember_token] = @session.remember_token
+        cookies.permanent[:remember_token] = @remember_token.token
       else
-        cookies[:remember_token] = @session.remember_token
+        cookies[:remember_token] = { value: @remember_token.token, expires: 1.hour.from_now }
       end
-      redirect_to root_path
+      redirect_back fallback_location: root_path
     else
       render :new
     end
   end
+
 
 
   def destroy
@@ -36,4 +37,9 @@ class SessionsController < ApplicationController
     cookies.delete(:user_id)
     redirect_to login_path, notice: "Đã đăng xuất!"
   end
+end
+
+private
+def remember_token_params
+  params.require(:remember_token).permit(:token)
 end

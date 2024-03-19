@@ -1,0 +1,31 @@
+<!-- app/views/home/change_password.html.erb -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title mb-4">Change Password</h1>
+          <%= form_with url: update_password_path, method: :post do |form| %>
+            <div class="mb-3">
+              <%= form.label :current_password, class: "form-label" %>
+              <%= form.password_field :current_password, class: "form-control", required: true %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :new_password, class: "form-label" %>
+              <%= form.password_field :new_password, class: "form-control", required: true %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :confirm_password, class: "form-label" %>
+              <%= form.password_field :confirm_password, class: "form-control", required: true %>
+            </div>
+            <div class="mb-3">
+              <%= form.submit 'Change Password', class: "btn btn-primary btn-block" %>
+              <%= link_to 'Back', home_index_path, class: 'btn btn-secondary btn-block ' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
