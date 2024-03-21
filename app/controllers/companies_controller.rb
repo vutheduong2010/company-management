@@ -2,7 +2,9 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
     @companies = @companies.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
-    @companies = @companies.paginate(page: params[:page], per_page: 10)
+    @companies = @companies.paginate(page: params[:page], per_page: 5)
+    @company = Company.new
+
   end
 
   def show
@@ -11,17 +13,15 @@ class CompaniesController < ApplicationController
                     url_for(@company.avatar.first) # Sử dụng first để lấy một tệp đính kèm đầu tiên (nếu có)
                   else
                     nil
-    # if @company
-    #   redirect_to company_path(@company)
-    # else
-    #   flash[:error] = "Không tìm thấy công ty"
-    #   redirect_to companies_path
-    # end
+                    # if @company
+                    #   redirect_to company_path(@company)
+                    # else
+                    #   flash[:error] = "Không tìm thấy công ty"
+                    #   redirect_to companies_path
+                    # end
+                  end
   end
-    end
-  def new
-    @company = Company.new
-  end
+
 
 
   def edit

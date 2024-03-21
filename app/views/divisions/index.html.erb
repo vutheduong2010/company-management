@@ -3,11 +3,11 @@
   <h1>Divisions Managements</h1>
 
   <div class="form-group row mt-3">
-  <%= form_tag(divisions_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: 'Enter your division code' %>
-    <%= submit_tag 'Search', class:'btn btn-secondary' %>
+    <%= form_tag(divisions_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Enter your division code' %>
+      <%= submit_tag 'Search', class:'btn btn-secondary' %>
       </div>
-  <% end %>
+    <% end %>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -41,7 +41,7 @@
           <td class="center-text"><%=  division.phone  %></td>
           <td class="center-text"><%= link_to 'Detail', "/divisions/#{division.id}}",class:'btn btn-secondary' %></td>
           <td class="center-text">
-          <%= button_to 'Delete', division_path(division), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
+            <%= button_to 'Delete', division_path(division), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
           </td>
 
           <script>
@@ -59,12 +59,12 @@
 
 
     <div class="mt-4">
-    <%= link_to 'ADD DIVISION', new_division_path, class:'btn btn-primary' %>
-  </div>
-    <div class="mt-4">
-  <%= link_to 'Back to Homepage', root_path, class: "btn btn-secondary" %>
+      <%= link_to 'ADD DIVISION', new_division_path, class:'btn btn-primary' %>
     </div>
-</div>
+    <div class="mt-4">
+      <%= link_to 'Back to Homepage', root_path, class: "btn btn-secondary" %>
+    </div>
+    </div>
 <div class="pagination">
   <%= paginate @divisions, theme: 'twitter-bootstrap-3' %>
 </div>
@@ -93,7 +93,7 @@
 
     .pagination a {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 5px 10px;
         margin: 0 5px;
         color: #333;
         text-decoration: none;

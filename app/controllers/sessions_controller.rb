@@ -3,11 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def create
+
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       if params[:remember_me]
-        cookies[:user_id] = { value: user.id, expires: 2.weeks.from_now }
+        cookies.encrypted[:user_id] = {
+          value: user.id,
+          expires: 2.weeks.from_now
+        }
       end
       redirect_to root_path, notice: "Đăng nhập thành công!"
     else

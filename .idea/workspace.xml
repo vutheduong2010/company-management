@@ -5,40 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad1e6746-0318-49fc-b2c0-ccb134d922cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/home/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.encrypted[:user_id]" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/h[:notice] = Successfully created account" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/password_resets_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/password_resets_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/branches_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/branches_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/companies_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/companies_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/divisions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/divisions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/create.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/destroy.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/branches/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/branches/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/branches/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/update.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/companies/create.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/companies/destroy.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/companies/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/companies/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/companies/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/companies/new.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/companies/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/companies/update.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/divisions/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/password_resets/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/password_resets/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/shared/_flash.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_flash.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/user/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/user_mailer/password_reset_email.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user_mailer/password_reset_email.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20240315081138_add_reset_token_to_users.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +218,10 @@
       <workItem from="1710379455399" duration="25893000" />
       <workItem from="1710465789460" duration="23290000" />
       <workItem from="1710725845117" duration="25747000" />
-      <workItem from="1710811697047" duration="23384000" />
+      <workItem from="1710811697047" duration="23552000" />
+      <workItem from="1710897779181" duration="15256000" />
+      <workItem from="1710919482561" duration="10565000" />
+      <workItem from="1710984682099" duration="21577000" />
     </task>
     <servers />
   </component>

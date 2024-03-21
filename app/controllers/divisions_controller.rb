@@ -2,7 +2,7 @@ class DivisionsController < ApplicationController
     def index
       @divisions = Division.all
       @divisions = @divisions.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
-      @divisions = @divisions.paginate(page: params[:page], per_page: 10)
+      @divisions = @divisions.paginate(page: params[:page], per_page: 5)
     end
 
     def show
@@ -50,7 +50,7 @@ class DivisionsController < ApplicationController
 
 
     def division_params
-      params.require(:division).permit(:company_code, :company_name, :branch_code, :branch_name, :division_code, :division_name, :address, :email, :phone, :website, :status)
+      params.require(:division).permit(:company_code, :company_name, :branch_code, :branch_name, :division_code, :division_name, :address, :email, :phone)
     end
   end
 

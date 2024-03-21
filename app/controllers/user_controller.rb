@@ -10,15 +10,12 @@ class UserController < ApplicationController
       #redirect_to root_path, notice: "successfully created account"
       flash[:notice] = "Successfully created account"
       redirect_to login_path
+
     else
-      flash.now[:alert]= "An error occurred while registering"
-      render :new
-      flash[:notice] = 'Error' and redirect_to request.referer
+      flash[:alert]= "An error occurred while registering"
+      redirect_to sign_up_path
     end
   end
-
-
-
 
   private
   def user_params

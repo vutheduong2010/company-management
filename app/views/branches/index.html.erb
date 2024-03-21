@@ -35,7 +35,7 @@
         <td class="center-text"><%=  branch.status  %></td>
         <td class="center-text"><%= link_to 'Detail', "/branches/#{branch.id}}", class:'btn btn-secondary' %></td>
         <td class="center-text">
-        <%= button_to 'Delete', branch_path(branch), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
+          <%= button_to 'Delete', branch_path(branch), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
         </td>
 
         <script>
@@ -90,7 +90,7 @@
 
     .pagination a {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 5px 10px;
         margin: 0 5px;
         color: #333;
         text-decoration: none;
