@@ -3,20 +3,13 @@ class BranchesController < ApplicationController
     @branches = Branch.all
     @branches = @branches.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
     @branches = @branches.paginate(page: params[:page], per_page: 5)
+    @branch = Branch.new
   end
 
   def show
     @branch = Branch.find(params[:id])
   end
 
-  def new
-    @branch = Branch.new
-  end
-
-
-  def edit
-    @branch = Branch.find(params[:id])
-  end
 
   def create
     @branch = Branch.new(branch_params)

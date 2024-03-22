@@ -3,20 +3,13 @@ class DivisionsController < ApplicationController
       @divisions = Division.all
       @divisions = @divisions.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
       @divisions = @divisions.paginate(page: params[:page], per_page: 5)
+      @division = Division.new
     end
 
     def show
       @division = Division.find(params[:id])
     end
 
-    def new
-      @division = Division.new
-    end
-
-
-    def edit
-      @division = Division.find(params[:id])
-    end
 
     def create
       @division = Division.new(division_params)

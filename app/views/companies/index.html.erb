@@ -6,9 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
+    <h1 style="background-color: #0077cc; color: #000;">Company Managements</h1>
   </head>
 
-  <h1 style="background-color: #0077cc; color: #000;">Company Managements</h1>
+
 <br>
   <body>
 
@@ -78,15 +80,10 @@
           <td class="center-text">
             <div class="btn-group" role="group" aria-label="Button group">
               <%= link_to 'Detail', "/companies/#{company.id}", class: "btn btn-info btn-block" %>
-              <div class="mx-1"></div> <!-- Tạo khoảng cách ngang -->
+              <div class="mx-1"></div>
               <%= button_to 'Delete', company_path(company), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
             </div>
           </td>
-
-
-
-
-
 
           <script>
               function confirmDelete() {
@@ -111,7 +108,6 @@
 <div style="display: flex; justify-content: flex-end;">
   <%= paginate @companies, theme: 'twitter-bootstrap-3' %>
 </div>
-
 
 
 <style>

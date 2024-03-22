@@ -22,12 +22,6 @@ class CompaniesController < ApplicationController
                   end
   end
 
-
-
-  def edit
-    @company = Company.find(params[:id])
-  end
-
   def create
     @company = Company.new(company_params)
     if @company.save
@@ -41,10 +35,12 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     if @company.update(company_params)
+
       redirect_to companies_path, notice: 'Thông tin công ty đã được cập nhật thành công.'
     else
       render :edit, alert: 'Có lỗi xảy ra khi cập nhật thông tin công ty.'
     end
+
   end
 
   def destroy
