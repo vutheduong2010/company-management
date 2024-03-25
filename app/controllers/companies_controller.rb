@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
     @companies = @companies.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
-    @companies = @companies.paginate(page: params[:page], per_page: 5)
+    @companies = @companies.paginate(page: params[:page], per_page: params[:per] || 5)
     @company = Company.new
 
   end

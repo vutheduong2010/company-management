@@ -9,17 +9,14 @@
       <change beforePath="$PROJECT_DIR$/app/controllers/branches_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/branches_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/companies_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/companies_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/divisions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/divisions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/edit.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/branches/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/branches/new.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/branches/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/branches/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/companies/edit.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/companies/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/companies/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/edit.html.erb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/divisions/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/new.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/divisions/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/user/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -214,6 +211,7 @@
       <workItem from="1710919482561" duration="10565000" />
       <workItem from="1710984682099" duration="22608000" />
       <workItem from="1711070571525" duration="23820000" />
+      <workItem from="1711329774590" duration="18809000" />
     </task>
     <servers />
   </component>

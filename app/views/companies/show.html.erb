@@ -46,20 +46,9 @@
     </div>
 
     <div class="col-md-6">
-      <div class="d-flex justify-content-end">
-        <%= form_with(model: @company, url: update_avatar_company_path, local: true, method: :put, html: { multipart: true }) do |form| %>
-          <div class="form-group">
-            <%= form.label :avatar, "Upload Avatar" %>
-            <%= form.file_field :avatar, class: "form-control-file" %>
-          </div>
-
-          <button type="submit" class="btn btn-primary me-2">
-            Update <i class="fas fa-camera"></i>
-          </button>
-
-        <% end %>
-
-        <div class="mt-4">
+      <div class="d-flex justify-content-end align-items-center"> <!-- Thêm lớp align-items-center vào đây -->
+        <!-- Hiển thị hình ảnh avatar -->
+        <div class="mt-4 me-4"> <!-- Thêm lớp me-4 để tạo khoảng cách -->
           <% if @company.avatar.attached? %>
             <% @company.avatar.each do |avatar| %>
               <div class="mb-4 text-center">
@@ -73,8 +62,22 @@
             <p>No avatar uploaded yet.</p>
           <% end %>
         </div>
+
+        <%= form_with(model: @company, url: update_avatar_company_path, local: true, method: :put, html: { multipart: true }) do |form| %>
+          <div class="form-group">
+            <%= form.label :avatar, "Upload Avatar" %>
+            <%= form.file_field :avatar, class: "form-control-file" %>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Upload <i class="fas fa-camera"></i>
+          </button>
+        <% end %>
       </div>
     </div>
+
+
+
 
   </div>
 </div>

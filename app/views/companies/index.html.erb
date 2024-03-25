@@ -1,48 +1,103 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="centered-content">
   <!DOCTYPE html>
   <html lang="en">
+  <style>
+      h1 {
+          background-color: #0077cc;
+          color: #000;
+          text-align: left; /* căn tiêu đề về phía bên trái */
+          padding: 10px; /* thêm padding cho tiêu đề */
+          margin-left: 20px; /* tạo khoảng cách từ lề trái */
+      }
+  </style>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
 
     <h1 style="background-color: #0077cc; color: #000;">Company Managements</h1>
   </head>
 
 
-<br>
+  <br>
   <body>
 
-  <%= form_tag(companies_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: 'Enter your company code', class: 'form-label custom-border' %>
-    <%= submit_tag 'Search',class: "btn btn-info btn-block" %>
-  <% end %>
+  <div id="searchFormWrapper" style="display: none;">
+    <%= form_tag(companies_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Enter your company code', class: 'form-label custom-border' %>
+      <%= submit_tag 'Search', class: "btn btn-info btn-block" %>
+    <% end %>
+  </div>
+  <button id="showSearchFormButton" class="btn btn-primary">Search</button>
+
+  <!-- JavaScript -->
+  <script>
+      document.getElementById('showSearchFormButton').addEventListener('click', function() {
+          document.getElementById('searchFormWrapper').style.display = 'block';
+      });
+  </script>
   <br>
   <%= form_with(model: @company, url: companies_path, method: :post, local: true) do |form| %>
-    <% fields = [
-      { attribute: :company_code, label: 'Company Code', placeholder: 'Enter company code' },
-      { attribute: :company_name, label: 'Company Name', placeholder: 'Enter company name' },
-      { attribute: :address, label: 'Address', placeholder: 'Enter address' },
-      { attribute: :email, label: 'Email', placeholder: 'Enter email' },
-      { attribute: :phone, label: 'Phone', placeholder: 'Enter phone number' },
-      { attribute: :website, label: 'Website', placeholder: 'Enter website' },
-      { attribute: :status, label: 'Status', prompt: 'Select status', options: ['Working', 'Pending', 'Stop'] }
-    ] %>
-    <% fields.each do |field| %>
-      <div class="row mb-3">
-        <div class="col-md-2">
-          <%= form.label field[:attribute], "<strong>#{field[:label]}</strong>".html_safe, class: 'form-label form-section-label' %>
-        </div>
-        <div class="col-md-9">
-          <% if field[:attribute] == :status %>
-            <%= form.select field[:attribute], field[:options], { prompt: field[:prompt] }, class: 'form-control custom-border', style: 'max-width: 200px;' %>
-          <% else %>
-            <%= form.text_field field[:attribute], placeholder: field[:placeholder], class: 'form-control custom-border', style: 'max-width: 200px;' %>
-          <% end %>
-        </div>
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :company_code, "<strong>Company Code</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-    <% end %>
+      <div class="col-md-9">
+        <%= form.text_field :company_code, placeholder: 'Enter company code', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :company_name, "<strong>Company Name</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.text_field :company_name, placeholder: 'Enter company name', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :address, "<strong>Address</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.text_field :addres, placeholder: 'Enter address', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :email, "<strong>Email</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.text_field :email, placeholder: 'Enter email', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :phone, "<strong>Phone</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.text_field :phone, placeholder: 'Enter your phone', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :website, "<strong>Website</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.text_field :website, placeholder: 'Enter your website', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :status, "<strong>Status</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+      <div class="col-md-9">
+        <%= form.select :status, ['Working', 'Pending', 'Stop'], { prompt: 'Select status' }, class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+    </div>
+
 
     <hr>
 
@@ -76,7 +131,9 @@
           <td class="center-text"><%= company.company_name %></td>
           <td class="center-text"><%= company.email %></td>
           <td class="center-text"><%= company.phone %></td>
-          <td class="center-text"><%= company.status %></td>
+          <td class="center-text <%= company.status.downcase %>">
+            <%= company.status %>
+          </td>
           <td class="center-text">
             <div class="btn-group" role="group" aria-label="Button group">
               <%= link_to 'Detail', "/companies/#{company.id}", class: "btn btn-info btn-block" %>
@@ -91,7 +148,7 @@
               }
           </script>        </tr>
       <% end %>
-      <!-- Thêm các hàng khác tương tự -->
+
       </tbody>
     </table>
   </div>
@@ -105,10 +162,23 @@
 
 </div>
 
-<div style="display: flex; justify-content: flex-end;">
+<div style= "display: flex; justify-content: flex-end;">
   <%= paginate @companies, theme: 'twitter-bootstrap-3' %>
 </div>
 
+<label for="rowsPerPage">Rows per page:</label>
+<select name="rowsPerPage" id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+  <option value="5" <%= 'selected' if params[:per].to_i == 5 %>>5</option>
+  <option value="10" <%= 'selected' if params[:per].to_i == 10 %>>10</option>
+  <option value="15" <%= 'selected' if params[:per].to_i == 15 %>>15</option>
+  <option value="20" <%= 'selected' if params[:per].to_i == 20 %>>20</option>
+</select>
+<script>
+    function changeRowsPerPage(rowsPerPage) {
+        // Gửi yêu cầu đến máy chủ để lấy dữ liệu mới dựa trên số hàng trên mỗi trang đã chọn
+        window.location.href = `http://localhost:3000/companies?per=${rowsPerPage}`
+    }
+</script>
 
 <style>
     table{
@@ -203,6 +273,18 @@
     }
     .custom-border {
         border-color: #007bff; /* Màu viền của trường */
+    }
+
+    .working {
+        color: green; /* Màu xanh lá cây cho trạng thái Working */
+    }
+
+    .pending {
+        color: #FFD700; /* Màu vàng cho trạng thái Pending */
+    }
+
+    .stop {
+        color: red; /* Màu đỏ cho trạng thái Stop */
     }
 </style>
 

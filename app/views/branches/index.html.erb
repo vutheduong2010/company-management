@@ -77,7 +77,9 @@
           <td class="center-text"><%= branch.branch_name %></td>
           <td class="center-text"><%= branch.email %></td>
           <td class="center-text"><%= branch.phone %></td>
-          <td class="center-text"><%= branch.status %></td>
+          <td class="center-text <%= branch.status.downcase %>">
+            <%= branch.status %>
+          </td>
           <td class="center-text">
             <div class="btn-group" role="group" aria-label="Button group">
               <%= link_to 'Detail', "/branches/#{branch.id}", class: "btn btn-info btn-block" %>
@@ -110,6 +112,20 @@
   <%= paginate @branches, theme: 'twitter-bootstrap-3' %>
 </div>
 
+<label for="rowsPerPage">Rows per page:</label>
+<select name="rowsPerPage" id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+  <option value="5" <%= 'selected' if params[:per].to_i == 5 %>>5</option>
+  <option value="10" <%= 'selected' if params[:per].to_i == 10 %>>10</option>
+  <option value="15" <%= 'selected' if params[:per].to_i == 15 %>>15</option>
+  <option value="20" <%= 'selected' if params[:per].to_i == 20 %>>20</option>
+</select>
+<script>
+    function changeRowsPerPage(rowsPerPage) {
+        // Gửi yêu cầu đến máy chủ để lấy dữ liệu mới dựa trên số hàng trên mỗi trang đã chọn
+        // Ở đây bạn có thể sử dụng AJAX để gửi yêu cầu không cần phải tải lại trang
+        window.location.href = `http://localhost:3000/branches?per=${rowsPerPage}`
+    }
+</script>
 
 
 <style>
@@ -205,6 +221,20 @@
     }
     .custom-border {
         border-color: #007bff; /* Màu viền của trường */
+    }
+
+
+
+    .working {
+        color: green; /* Màu xanh lá cây cho trạng thái Working */
+    }
+
+    .pending {
+        color: #FFD700; /* Màu vàng cho trạng thái Pending */
+    }
+
+    .stop {
+        color: red; /* Màu đỏ cho trạng thái Stop */
     }
 </style>
 

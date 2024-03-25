@@ -52,19 +52,18 @@
           <%= link_to 'Back', branches_path(@branch.id), class: 'btn btn-secondary' %>
         </div>
       <% end %>
-    </div>
-  </div>
-</div>
+      </div>
+      </div>
+      </div>
 
 
+      <div class="status-buttons-container" style="position: fixed; bottom: 10px; left: 10px; z-index:1031;">
+        <button class="btn btn-success me-2 status-button" data-status="Working">Working</button>
+        <button class="btn btn-warning me-2 status-button" data-status="Pending">Pending</button>
+        <button class="btn btn-danger me-2 status-button" data-status="Stop">Stop</button>
+      </div>
 
-<div class="status-buttons-container" style="position: fixed; bottom: 10px; left: 10px; z-index:1031;>
-  <button class="btn btn-success me-2 status-button" data-status="Working">Working</button>
-  <button class="btn btn-warning me-2 status-button" data-status="Pending">Pending</button>
-  <button class="btn btn-danger me-2 status-button" data-status="Stop">Stop</button>
-</div>
-
-</body>
+      </body>
 </html>
 <style>
 

@@ -1,13 +1,8 @@
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <div class="centered-content">
   <!DOCTYPE html>
   <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-
     <h1 style="background-color: #0077cc; color: #000;">Division Managements</h1>
   </head>
 
@@ -108,7 +103,20 @@
   <%= paginate @divisions, theme: 'twitter-bootstrap-3' %>
 </div>
 
-
+<label for="rowsPerPage">Rows per page:</label>
+<select name="rowsPerPage" id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+  <option value="5" <%= 'selected' if params[:per].to_i == 5 %>>5</option>
+  <option value="10" <%= 'selected' if params[:per].to_i == 10 %>>10</option>
+  <option value="15" <%= 'selected' if params[:per].to_i == 15 %>>15</option>
+  <option value="20" <%= 'selected' if params[:per].to_i == 20 %>>20</option>
+</select>
+<script>
+    function changeRowsPerPage(rowsPerPage) {
+        // Gửi yêu cầu đến máy chủ để lấy dữ liệu mới dựa trên số hàng trên mỗi trang đã chọn
+        // Ở đây bạn có thể sử dụng AJAX để gửi yêu cầu không cần phải tải lại trang
+        window.location.href = `http://localhost:3000/divisions?per=${rowsPerPage}`
+    }
+</script>
 
 <style>
     table{
