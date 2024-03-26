@@ -3,6 +3,15 @@
 <div class="centered-content">
   <!DOCTYPE html>
   <html lang="en">
+  <style>
+      h1 {
+          background-color: #0077cc;
+          color: #000;
+          text-align: left; /* căn tiêu đề về phía bên trái */
+          padding: 10px; /* thêm padding cho tiêu đề */
+          margin-left: 20px; /* tạo khoảng cách từ lề trái */
+      }
+  </style>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +20,14 @@
     <h1 style="background-color: #0077cc; color: #000;">Branch Managements</h1>
   </head>
 
-
   <br>
   <body>
-
+  <div id="searchFormWrapper" style="display: none;">
     <%= form_tag(branches_path, method: :get) do %>
     <%= text_field_tag :search, params[:search], placeholder: 'Enter your branch code', class: 'form-label custom-border' %>
     <%= submit_tag 'Search',class: "btn btn-info btn-block" %>
   <% end %>
+  </div>
   <br>
   <%= form_with(model: @branch, url: branches_path, method: :post, local: true) do |form| %>
     <% fields = [
@@ -50,9 +59,16 @@
     <br>
     <div class="form-group row mt-3 justify-content-end">
       <div class="col-sm-6 text-end">
+        <button id="showSearchFormButton" class="btn btn-primary">Search</button>
         <%= form.submit 'Register', class: "btn btn-success" %>
         <%= link_to 'Back', root_path, class: "btn btn-dark ms-2" %>
       </div>
+      <script>
+          document.getElementById('showSearchFormButton').addEventListener('click', function(e) {
+              e.preventDefault();
+              document.getElementById('searchFormWrapper').style.display = 'block';
+          });
+      </script>
     </div>
   <% end %>
 

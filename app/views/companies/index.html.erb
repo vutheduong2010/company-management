@@ -18,97 +18,93 @@
 
   <br>
   <body>
-
   <div id="searchFormWrapper" style="display: none;">
     <%= form_tag(companies_path, method: :get) do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Enter your company code', class: 'form-label custom-border' %>
       <%= submit_tag 'Search', class: "btn btn-info btn-block" %>
     <% end %>
   </div>
-  <button id="showSearchFormButton" class="btn btn-primary">Search</button>
+
 
   <!-- JavaScript -->
-  <script>
-      document.getElementById('showSearchFormButton').addEventListener('click', function() {
-          document.getElementById('searchFormWrapper').style.display = 'block';
-      });
-  </script>
+
   <br>
   <%= form_with(model: @company, url: companies_path, method: :post, local: true) do |form| %>
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :company_code, "<strong>Company Code</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.text_field :company_code, placeholder: 'Enter company code', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
+
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :company_name, "<strong>Company Name</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
+
         <%= form.text_field :company_name, placeholder: 'Enter company name', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :address, "<strong>Address</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.text_field :addres, placeholder: 'Enter address', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
+
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :email, "<strong>Email</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.text_field :email, placeholder: 'Enter email', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
+
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :phone, "<strong>Phone</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.text_field :phone, placeholder: 'Enter your phone', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :website, "<strong>Website</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.text_field :website, placeholder: 'Enter your website', class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
 
     <div class="row mb-3">
       <div class="col-md-2">
         <%= form.label :status, "<strong>Status</strong>".html_safe, class: 'form-label form-section-label' %>
       </div>
-      <div class="col-md-9">
         <%= form.select :status, ['Working', 'Pending', 'Stop'], { prompt: 'Select status' }, class: 'form-control custom-border', style: 'max-width: 200px;' %>
       </div>
-    </div>
 
 
     <hr>
 
     <br>
+
     <div class="form-group row mt-3 justify-content-end">
       <div class="col-sm-6 text-end">
+        <button id="showSearchFormButton" class="btn btn-primary">Search</button>
         <%= form.submit 'Register', class: "btn btn-success" %>
         <%= link_to 'Back', root_path, class: "btn btn-dark ms-2" %>
       </div>
     </div>
+    <script>
+        document.getElementById('showSearchFormButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('searchFormWrapper').style.display = 'block';
+        });
+    </script>
   <% end %>
+
+  <!-- JavaScript -->
+
 
 
   <div class="container">
@@ -162,7 +158,7 @@
 
 </div>
 
-<div style= "display: flex; justify-content: flex-end;">
+<div style = "display: flex; justify-content: flex-end;">
   <%= paginate @companies, theme: 'twitter-bootstrap-3' %>
 </div>
 
