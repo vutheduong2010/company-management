@@ -1,23 +1,13 @@
 <div class="centered-content">
   <!DOCTYPE html>
   <html lang="en">
-  <style>
-      h1 {
-          background-color: #0077cc;
-          color: #000;
-          text-align: left; /* căn tiêu đề về phía bên trái */
-          padding: 10px; /* thêm padding cho tiêu đề */
-          margin-left: 20px; /* tạo khoảng cách từ lề trái */
-      }
-  </style>
-  <head>
 
+  <head>
     <h1 style="background-color: #0077cc; color: #000;">Company Managements</h1>
   </head>
-
-
   <br>
   <body>
+
   <div id="searchFormWrapper" style="display: none;">
     <%= form_tag(companies_path, method: :get) do %>
       <%= text_field_tag :search, params[:search], placeholder: 'Enter your company code', class: 'form-label custom-border' %>
@@ -259,14 +249,12 @@
         background-color: #f2f2f2;
     }
 
-</style>
 
-<style>
     .full-width-table {
         width: 100vw; /* Đảm bảo bảng rộng hết màn hình từ bên trái đến bên phải */
         margin-left: -530px; /* Điều chỉnh margin bên trái để căn lề */
-        margin-right:10x; /* Điều chỉnh margin bên phải để căn lề */
     }
+
     .custom-border {
         border-color: #007bff; /* Màu viền của trường */
     }
@@ -283,4 +271,8 @@
         color: red; /* Màu đỏ cho trạng thái Stop */
     }
 </style>
+
+
+
+
 

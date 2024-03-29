@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>QuanLyCongTy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -14,6 +15,18 @@
   </head>
 
   <body>
+<header>
+  <style>
+      h1 {
+          background-color: #0077cc;
+          color: #000;
+          text-align: left; /* căn tiêu đề về phía bên trái */
+          padding: 10px; /* thêm padding cho tiêu đề */
+          margin-left: 20px; /* tạo khoảng cách từ lề trái */
+      }
+  </style>
+</header>
+
   <%= render partial: "shared/flash" %>
   <%= yield %>
 

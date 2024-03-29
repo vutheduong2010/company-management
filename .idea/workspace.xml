@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/app/views/companies/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/companies/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/divisions/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/divisions/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/divisions/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +209,10 @@
       <workItem from="1710984682099" duration="22608000" />
       <workItem from="1711070571525" duration="23820000" />
       <workItem from="1711329774590" duration="19373000" />
-      <workItem from="1711416387790" duration="12547000" />
+      <workItem from="1711416387790" duration="12682000" />
+      <workItem from="1711503293880" duration="2170000" />
+      <workItem from="1711588603000" duration="6250000" />
+      <workItem from="1711674993667" duration="12092000" />
     </task>
     <servers />
   </component>
