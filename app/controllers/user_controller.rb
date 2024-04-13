@@ -9,11 +9,11 @@ class UserController < ApplicationController
     if @user.save
       #redirect_to root_path, notice: "successfully created account"
       flash[:notice] = "Successfully created account"
-      redirect_to root_path
+      redirect_to login_path
+
     else
-      flash.now[:alert]= "An error occurred while registering"
-      render :new
-      #flash[:notice] = 'Error' and redirect_to request.referer
+      flash[:alert]= "An error occurred while registering"
+      redirect_to sign_up_path
     end
   end
 
@@ -21,4 +21,4 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_cofirmation)
   end
-end
+  end

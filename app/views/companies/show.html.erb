@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    h1 {
+        background-color: #0077cc;
+        color: #000;
+        text-align: left; /* căn tiêu đề về phía bên trái */
+        padding: 10px; /* thêm padding cho tiêu đề */
+        margin-left: 20px; /* tạo khoảng cách từ lề trái */
+    }
+</style>
+<head>
+  <h1 style="background-color: #0077cc; color: #000;">Company Detail</h1>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= form_with(model: @company, url: company_path, local: true, method: :put) do |form| %>
+        <% fields = [
+          { attribute: :company_code, label: 'Company Code', placeholder: 'Enter company code' },
+          { attribute: :company_name, label: 'Company Name', placeholder: 'Enter company name' },
+          { attribute: :address, label: 'Address', placeholder: 'Enter address' },
+          { attribute: :email, label: 'Email', placeholder: 'Enter email' },
+          { attribute: :phone, label: 'Phone', placeholder: 'Enter phone number' },
+          { attribute: :website, label: 'Website', placeholder: 'Enter website' },
+          { attribute: :status, label: 'Status',  options: ['Working', 'Pending', 'Stop'] }
+        ] %>
+        <% fields.each do |field| %>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <%= form.label field[:attribute], "<strong>#{field[:label]}</strong>".html_safe, class: 'form-label form-section-label' %>
+            </div>
+            <div class="col-md-9">
+              <% if field[:attribute] == :status %>
+                <%= form.select field[:attribute], field[:options], { prompt: field[:prompt] }, class: 'form-control custom-border', style: 'max-width: 200px;', id: 'status-select' %>
+              <% else %>
+                <%= form.text_field field[:attribute], placeholder: field[:placeholder], class: 'form-control custom-border form-input-text', style: 'max-width: 200px;' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="d-flex justify-content-end fixed-bottom mb-3 me-3">
+          <button type="submit" class="btn btn-primary me-2">Update</button>
+          <%= link_to 'Back', companies_path(@company.id), class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <div class="d-flex justify-content-end align-items-center"> <!-- Thêm lớp align-items-center vào đây -->
+        <!-- Hiển thị hình ảnh avatar -->
+        <div class="mt-4 me-4"> <!-- Thêm lớp me-4 để tạo khoảng cách -->
+          <% if @company.avatar.attached? %>
+            <% @company.avatar.each do |avatar| %>
+              <div class="mb-4 text-center">
+                <%= image_tag url_for(avatar), class: "avatar-image img-thumbnail" %>
+                <%= form_tag remove_avatar_company_path(@company), method: :delete, data: { confirm: "Are you sure you want to remove the avatar?" } do %>
+                  <%= submit_tag "Remove Avatar", class: "btn btn-danger mt-2" %>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>No avatar uploaded yet.</p>
+          <% end %>
+        </div>
+
+        <%= form_with(model: @company, url: update_avatar_company_path, local: true, method: :put, html: { multipart: true }) do |form| %>
+          <div class="form-group">
+            <%= form.label :avatar, "Upload Avatar" %>
+            <%= form.file_field :avatar, class: "form-control-file" %>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Upload <i class="fas fa-camera"></i>
+          </button>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="status-buttons-container" style="position: fixed; bottom: 10px; left: 10px; z-index:1031;">
+  <button class="btn btn-success me-2 status-button" data-status="Working">Working</button>
+  <button class="btn btn-warning me-2 status-button" data-status="Pending">Pending</button>
+  <button class="btn btn-danger me-2 status-button" data-status="Stop">Stop</button>
+</div>
+
+
+</body>
+</html>
+<style>
+
+
+    .custom-border {
+        border-color: #007bff; /* Màu viền của trường */
+    }
+
+    .avatar-image {
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+</style>
+<style>
+    .button-group {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button-group button {
+        margin-bottom: 10px;
+    }
+
+    .working {
+        background-color: green;
+        color: white;
+    }
+
+    .pending {
+        background-color: yellow;
+        color: black;
+    }
+
+    .stop {
+        background-color: red;
+        color: white;
+    }
+
+    .status {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .working-status {
+        color: green;
+    }
+
+    .pending-status {
+        color: yellow;
+    }
+
+    .stop-status {
+        color: red;
+    }
+
+    .button-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.status-button').click(function() {
+            var status = $(this).data('status');
+            $('#status-select').val(status); // Cập nhật giá trị của dropdown menu
+        });
+    });
+</script>

@@ -1,0 +1,14 @@
+<h2>Đặt lại mật khẩu</h2>
+<%= form_with(model: @user, url: password_reset_path(@user.password_reset_token), method: :patch) do |f| %>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Lưu mật khẩu mới" %>
+  </div>
+<% end %>

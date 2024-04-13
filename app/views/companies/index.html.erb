@@ -1,0 +1,278 @@
+<div class="centered-content">
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <h1 style="background-color: #0077cc; color: #000;">Company Managements</h1>
+  </head>
+  <br>
+  <body>
+
+  <div id="searchFormWrapper" style="display: none;">
+    <%= form_tag(companies_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Enter your company code', class: 'form-label custom-border' %>
+      <%= submit_tag 'Search', class: "btn btn-info btn-block" %>
+    <% end %>
+  </div>
+
+
+  <!-- JavaScript -->
+
+  <br>
+  <%= form_with(model: @company, url: companies_path, method: :post, local: true) do |form| %>
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :company_code, "<strong>Company Code</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.text_field :company_code, placeholder: 'Enter company code', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :company_name, "<strong>Company Name</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+
+        <%= form.text_field :company_name, placeholder: 'Enter company name', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :address, "<strong>Address</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.text_field :addres, placeholder: 'Enter address', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :email, "<strong>Email</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.text_field :email, placeholder: 'Enter email', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :phone, "<strong>Phone</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.text_field :phone, placeholder: 'Enter your phone', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :website, "<strong>Website</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.text_field :website, placeholder: 'Enter your website', class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+    <div class="row mb-3">
+      <div class="col-md-2">
+        <%= form.label :status, "<strong>Status</strong>".html_safe, class: 'form-label form-section-label' %>
+      </div>
+        <%= form.select :status, ['Working', 'Pending', 'Stop'], { prompt: 'Select status' }, class: 'form-control custom-border', style: 'max-width: 200px;' %>
+      </div>
+
+
+    <hr>
+
+    <br>
+
+    <div class="form-group row mt-3 justify-content-end">
+      <div class="col-sm-6 text-end">
+        <button id="showSearchFormButton" class="btn btn-primary">Search</button>
+        <%= form.submit 'Register', class: "btn btn-success" %>
+        <%= link_to 'Back', root_path, class: "btn btn-dark ms-2" %>
+      </div>
+    </div>
+    <script>
+        document.getElementById('showSearchFormButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('searchFormWrapper').style.display = 'block';
+        });
+    </script>
+  <% end %>
+
+  <!-- JavaScript -->
+
+
+
+  <div class="container">
+    <table class="styled-table full-width-table">
+
+      <thead>
+      <tr>
+        <th style="background-color: #0077cc; color: #000;">Code</th>
+        <th style="background-color: #0077cc; color: #000;">Company Name</th>
+        <th style="background-color: #0077cc; color: #000;">Email</th>
+        <th style="background-color: #0077cc; color: #000;">Phone</th>
+        <th style="background-color: #0077cc; color: #000;">Status</th>
+        <th style="background-color: #0077cc; color: #000;">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td class="center-text"><%= company.company_code %></td>
+          <td class="center-text"><%= company.company_name %></td>
+          <td class="center-text"><%= company.email %></td>
+          <td class="center-text"><%= company.phone %></td>
+          <td class="center-text <%= company.status.downcase %>">
+            <%= company.status %>
+          </td>
+          <td class="center-text">
+            <div class="btn-group" role="group" aria-label="Button group">
+              <%= link_to 'Detail', "/companies/#{company.id}", class: "btn btn-info btn-block" %>
+              <div class="mx-1"></div>
+              <%= button_to 'Delete', company_path(company), method: :delete, class: 'btn btn-danger delete-btn', title: 'Delete', onclick: 'return confirmDelete();' %>
+            </div>
+          </td>
+
+          <script>
+              function confirmDelete() {
+                  return confirm('Are you sure you want to delete this company?');
+              }
+          </script>        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+  </div>
+
+  </body>
+  </html>
+
+
+  </table>
+
+
+</div>
+
+<div style = "display: flex; justify-content: flex-end;">
+  <%= paginate @companies, theme: 'twitter-bootstrap-3' %>
+</div>
+
+<label for="rowsPerPage">Rows per page:</label>
+<select name="rowsPerPage" id="rowsPerPage" onchange="changeRowsPerPage(this.value)">
+  <option value="5" <%= 'selected' if params[:per].to_i == 5 %>>5</option>
+  <option value="10" <%= 'selected' if params[:per].to_i == 10 %>>10</option>
+  <option value="15" <%= 'selected' if params[:per].to_i == 15 %>>15</option>
+  <option value="20" <%= 'selected' if params[:per].to_i == 20 %>>20</option>
+</select>
+<script>
+    function changeRowsPerPage(rowsPerPage) {
+        // Gửi yêu cầu đến máy chủ để lấy dữ liệu mới dựa trên số hàng trên mỗi trang đã chọn
+        window.location.href = `http://localhost:3000/companies?per=${rowsPerPage}`
+    }
+</script>
+
+<style>
+    table{
+        background-color: aliceblue;
+    }
+    table,tr,th,td{
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .centered-content {
+        text-align: center;
+    }
+    .student-table {
+        margin: 0 auto;
+    }
+
+</style>
+
+<style>
+    .pagination {
+        text-align: center;
+    }
+
+    .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 5px;
+        color: #333;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .pagination a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .pagination .prev,
+    .pagination .next {
+        background-color: #fff;
+    }
+
+</style>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .styled-table th {
+        background-color: #f2f2f2;
+    }
+
+    .styled-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+    .full-width-table {
+        width: 100vw; /* Đảm bảo bảng rộng hết màn hình từ bên trái đến bên phải */
+        margin-left: -530px; /* Điều chỉnh margin bên trái để căn lề */
+    }
+
+    .custom-border {
+        border-color: #007bff; /* Màu viền của trường */
+    }
+
+    .working {
+        color: green; /* Màu xanh lá cây cho trạng thái Working */
+    }
+
+    .pending {
+        color: #FFD700; /* Màu vàng cho trạng thái Pending */
+    }
+
+    .stop {
+        color: red; /* Màu đỏ cho trạng thái Stop */
+    }
+</style>
+
+
+
+
+
