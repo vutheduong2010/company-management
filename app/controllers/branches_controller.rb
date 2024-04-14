@@ -1,7 +1,7 @@
 class BranchesController < ApplicationController
   def index
     @branches = Branch.all
-    @branches = @branches.where("company_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    @branches = @branches.where("branch_code LIKE ?", "%#{params[:search]}%") if params[:search].present?
     @branches = @branches.paginate(page: params[:page], per_page: params[:per] || 5)
     @branch = Branch.new
   end

@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem 'mysql2'
 
-ruby "3.0.2"
+ruby "3.2.3"
 
 gem 'faker'
 
